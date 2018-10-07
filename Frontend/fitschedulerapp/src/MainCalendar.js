@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
-import Calendar from 'react-big-calendar';
-import * as moment from "moment/moment";
-import 'moment/locale/nb';
+import BigCalendar from 'react-big-calendar';
+import './big-calendar.css';
+import moment from 'moment';
 
 
-Calendar.setLocalizer(Calendar.momentLocalizer(moment));
+
+const localizer = BigCalendar.momentLocalizer(moment);
 
 const MainCalendar = (props) => {
   return (
     <div class="main-calendar-container">
-      <Calendar
+      <BigCalendar
         defaultDate={new Date()}
-        defaultView="month"
+        defaultView="week"
         events={props.events}
         style={{ height: "100vh" }}
+        localizer={localizer}
+        onSelectEvent={event => console.log(event)}
+        selectable={true}
+        onSelectSlot={e => console.log(e)}
       />
     </div>
     )

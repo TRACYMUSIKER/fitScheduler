@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import MainCalendar from './MainCalendar';
-import * as moment from "moment/moment";
+import 'react-big-calendar/lib/css/react-big-calendar.css'
+import moment from 'moment';
+
 
 
 export default class CalendarScreen extends Component {
