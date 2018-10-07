@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import MainCalendar from './MainCalendar';
+import CalendarScreen from './CalendarScreen';
 
 class App extends Component {
   render() {
@@ -8,7 +8,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
         </header>
-        <MainCalendar />
+        <CalendarScreen />
       </div>
     );
   }
