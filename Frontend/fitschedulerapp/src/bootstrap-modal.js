@@ -1,8 +1,27 @@
 import React, { Component } from 'react';
 import { Modal, Button, Popover, Tooltip, OverlayTrigger } from 'react-bootstrap'
 
-const ClassDetailsModal = (props) => {
-  // render() {
+class ClassDetailsModal extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+
+    this.state = {
+      show: false
+    };
+  }
+
+  handleClose() { 
+    this.setState({ show: false });
+  }
+
+  handleShow() {
+    this.setState({ show: true });
+  }
+
+  render() {
     const popover = (
       <Popover id="modal-popover" title="popover">
         very popover. such engagement
@@ -12,20 +31,24 @@ const ClassDetailsModal = (props) => {
 
     return (
       <div>
-        <Modal show={props.show} onHide={props.handleClose}>
+        <p>Click to get the full Modal experience!</p>
+
+        <Button bsStyle="primary" bsSize="large" onClick={this.handleShow}>
+          Launch demo modal
+        </Button>
+
+        <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Modal heading</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h4>Text in a modal {props.title} </h4>
+            <h4>Text in a modal</h4>
             <p>
               Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            {props.start} - {props.end}
             </p>
 
             <h4>Popover in a modal</h4>
             <p>
-              {props.instructor}
               there is a{' '}
               <OverlayTrigger overlay={popover}>
                 <a href="#popover">popover</a>
@@ -35,7 +58,6 @@ const ClassDetailsModal = (props) => {
 
             <h4>Tooltips in a modal</h4>
             <p>
-              {props.description}
               there is a{' '}
               <OverlayTrigger overlay={tooltip}>
                 <a href="#tooltip">tooltip</a>
@@ -58,12 +80,12 @@ const ClassDetailsModal = (props) => {
             </p>
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={props.handleClose}>Close</Button>
+            <Button onClick={this.handleClose}>Close</Button>
           </Modal.Footer>
         </Modal>
       </div>
     );
-  // }
+  }
 }
 
 export default ClassDetailsModal;

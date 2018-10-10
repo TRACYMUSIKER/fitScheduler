@@ -7,18 +7,30 @@ import moment from 'moment';
 
 export default class CalendarScreen extends Component {
   constructor(props){
-    super(props)
+    super(props);
+
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+
     this.state = {
       events: [
         {
           start: new Date(),
           end: new Date(moment().add(1, "days")),
-          title: "Some title",
+          title: "Yoga class",
           instructor: "Stein",
           description: 'do work'
         }
-      ]
+      ],
+      show: false
     };
+  }
+  handleClose() { 
+    this.setState({ show: false });
+  }
+
+  handleShow() {
+    this.setState({ show: true });
   }
   render(){
     return <MainCalendar {...this.state} />
