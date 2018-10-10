@@ -13,7 +13,9 @@ export default class CalendarScreen extends Component {
         {
           start: new Date(),
           end: new Date(moment().add(1, "days")),
-          title: "Some title"
+          title: "Some title",
+          instructor: "Stein",
+          description: 'do work'
         }
       ]
     };
