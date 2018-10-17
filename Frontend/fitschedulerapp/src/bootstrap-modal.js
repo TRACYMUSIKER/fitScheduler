@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Modal, Button, Popover, Tooltip, OverlayTrigger } from 'react-bootstrap'
 
-class ClassDetailsModal extends React.Component {
+export default class bootstrapmodal extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -87,5 +87,3 @@ class ClassDetailsModal extends React.Component {
     );
   }
 }
-
-export default ClassDetailsModal;

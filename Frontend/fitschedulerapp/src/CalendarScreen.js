@@ -19,7 +19,8 @@ export default class CalendarScreen extends Component {
           end: new Date(moment().add(1, "days")),
           title: "Yoga class",
           instructor: "Stein",
-          description: 'do work'
+          description: 'do work',
+          eventid: 2
         }
       ],
       show: false
